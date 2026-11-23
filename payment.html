@@ -356,7 +356,7 @@ Chat with us
 </div>
 
 <a
-href="https://wa.me/254180615574?text=Hi%20NYOTA%20FUNDS%2C%20I%20would%20like%20more%20information."
+href="https://wa.me/254184282933?text=Hi%20NYOTA%20FUNDS%2C%20I%20would%20like%20more%20information."
 target="_blank"
 rel="noopener noreferrer"
 aria-label="Chat with us on WhatsApp"
@@ -374,7 +374,7 @@ class="whatsapp-button"
 <script>
 "use strict";
 
-const BACKEND_URL="https://nyota-funds-2-ecqc.onrender.com";
+const BACKEND_URL="https://nyota-funds-26-27.onrender.com";
 
 const applicant=
 localStorage.getItem("fullName")||
@@ -504,10 +504,10 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({transactionId})
 });
 
-const result=await readJson(response);
-const status=String(result.data?.status||"").toUpperCase();
+const result = await readJson(response);
+const status = String(result.status || "").toUpperCase();
 
-if(["SUCCESS","COMPLETED","CONFIRMED"].includes(status)){
+if (result.verified === true) {
 setMessage("Payment successful. Redirecting...","success");
 setLoading(true,"Payment Confirmed");
 setTimeout(()=>window.location.href="delivery.html",1000);
@@ -607,4 +607,4 @@ setInterval(updateLiveComments,3000);
 </script>
 
 </body>
-  </html>
+</html>
